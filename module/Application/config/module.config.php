@@ -57,9 +57,27 @@ return array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
+        'factories' => array(
+            'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
+            'UserEntity'              => 'Application\Service\Factory\UserEntityFactory',
+        ),
+        'invokables' => array(
+            'Application\Model\Page' => 'Application\Model\Page',
+        ),
         'aliases' => array(
             'translator' => 'MvcTranslator',
+            'db' => 'Zend\Db\Adapter\Adapter',
         ),
+    ),
+    'db' => array(
+        'driver'   => 'Mysqli',
+        'database' => 'schulze',
+        'username' => 'root',
+        'password' => '123',
+        'charset'  => 'utf8',
+        'options'  => array(
+            'buffer_results' => true
+        )
     ),
     'translator' => array(
         'locale' => 'en_US',
